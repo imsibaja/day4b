@@ -2,6 +2,44 @@
 title: "Day 4b"
 author: "IMS"
 format: html
+editor_options: 
+  chunk_output_type: console
 ---
 
+```{r}
+# load libraries ----
+library(GGally)
+library(skimr)
+library(palmerpenguins)
+library(tidyverse)
+
+```
+
+```{r}
+# Always look at it ----
+#View(penguins)
+
+# Check the column names ----
+names(penguins)
+
+# Check the dimensions ----
+dim(penguins) 
+
+# get a summary of your df ----
+summary(penguins)
+
+# get a summary using {skimr} ----
+skimr::skim(penguins)
+
+# head % tail ----
+head(penguins, n=3)
+tail(penguins)
+
+# Make a pairsplot with a select number of columns and color by species ----
+GGally::ggpairs(penguins, columns = 3:6, ggplot2::aes(color = species))
+
+# create histogram of penguin flipper lengths ----
+ggplot(penguins, aes(flipper_length_mm, color=species)) +
+  geom_histogram()
+```
 
